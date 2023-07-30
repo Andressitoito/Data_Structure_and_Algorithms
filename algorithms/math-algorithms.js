@@ -106,3 +106,142 @@ function isPrimeOptimized(n) {
 
 // Big-O = O(sqrt(n)) Square Root Time Complexity
 
+///////////////////////////////////////
+// POWER OF TWO
+///////////////////////////////////////
+/* Problem: Given a positive integer 'n', determine if the number 'n' is a power of 2 or not. An integer is a power of two if there exists an integer 'x' such that 'n' === 2 ^ x */
+function power2(n) {
+	if (n === 0) {
+		return true;
+	}
+
+	if (n % 2 !== 0) {
+		return false;
+	}
+
+	let power = 1;
+
+	while (power <= n) {
+		power = power * 2;
+
+		if (power === n) {
+			console.log(true);
+			return true;
+		}
+	}
+	console.log(false);
+	return false;
+}
+/* console.time("power2");
+power2(131072);
+console.timeEnd("power2");
+ */
+function power2Optimized(n) {
+	if (n === 0) {
+		console.log(true);
+		return 1;
+	}
+
+	if (n % 2 !== 0) {
+		console.log(false);
+		return false;
+	}
+
+	n = n / 2;
+
+	let power = 1;
+
+	while (power <= n) {
+		power = power * 2;
+
+		if (power === n) {
+			console.log(true);
+			return true;
+		}
+	}
+
+	console.log(false);
+	return false;
+}
+/* console.time("power2Optimized");
+power2Optimized(131072);
+console.timeEnd("power2Optimized");
+ */
+function isPowerOfTwo(n) {
+	if (n < 1) {
+		console.log(false);
+		return false;
+	}
+	while (n > 1) {
+		if (n % 2 !== 0) {
+			console.log(false);
+			return false;
+		}
+		n = n / 2; // REDUCING VALUE OF N BY HALF
+	}
+	console.log(true);
+	return true;
+}
+
+// isPowerOfTwo(4);
+
+// Big-O = O(logn) - O logn n Time Complexity (Because the reduction by half the value of n in each loop)
+
+function isPowerOfTwoBitWise(n) {
+	if (n < 1) {
+		return false;
+	}
+
+	return (n & (n - 1)) === 0;
+}
+
+// Big-O = O(1) Constant
+
+///////////////////////////////////////
+// FIBONACCI SEQUENCE USING RECURSION
+///////////////////////////////////////
+/* Problem: Given a number 'n', where the first 'n' elements of the Fibonacci sequence */
+function recursiveFibonacci(n) {
+	if (n < 2) {
+		return n;
+	}
+	return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+}
+
+recursiveFibonacci(4);
+
+// Big-O = O(2^n) - Exponential Time Complexity
+
+///////////////////////////////////////
+// FACTORIAL OF A NUMBER USING RECURSION
+///////////////////////////////////////
+/* Problem: Given an integer 'n', find the factorial of that integer */
+function recursiveFactorial(n, facto) {
+	facto = facto ?? 1;
+	if (n === 0) {
+		console.log(facto);
+		return 1;
+	}
+	if (n < 2) {
+		console.log(facto);
+		return facto;
+	}
+
+	facto = n * facto;
+
+	return recursiveFactorial(n - 1, facto);
+}
+
+recursiveFactorial(4);
+
+function recursiveFactorialOptimized(n) {
+	if (n === 0) {
+		return 1;
+	}
+
+	return n * recursiveFactorialOptimized(n - 1);
+}
+
+// Big-O = O(n) Linear Time Complexity
+
+
