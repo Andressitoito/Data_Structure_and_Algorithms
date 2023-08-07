@@ -5,17 +5,20 @@ function ListNode(val, next) {
 }
 
 var sumElementsInList = function (head) {
-	const list = createLinkedList(head)
+	const node = createLinkedList(head);
 
- const sum = sumElements(list)
+	const sum = sumElementsRecursive(node);
 
- console.log(sum)
+	console.log(sum);
 
- return sum
+	return sum;
 };
 
 sumElementsInList([1, 2, 3, 4, 5]);
 
+	///////////////////////////////////////
+	// CREATE LINKED LIST
+	///////////////////////////////////////
 function createLinkedList(head) {
 	let node = new ListNode(0);
 	let currentNode = node;
@@ -31,18 +34,35 @@ function createLinkedList(head) {
 
 createLinkedList([1, 2, 3, 4, 5]);
 
-function sumElements(list, sum) {
-	sum = sum === undefined ? 0 : sum * 1;
+	///////////////////////////////////////
+	// RECURSION SUM
+	///////////////////////////////////////
+function sumElementsRecursive(node, currentSum = 0) {
+	currentSum = Number(currentSum);
 
-	sum += list.val;
+	currentSum += node.val;
 
-	if (list.next === null) {
-		return sum;
+	if (node.next === null) {
+		return currentSum;
 	}
 
-	return sumElements(list.next, sum);
+	return sumElements(node.next, currentSum);
+}
+	///////////////////////////////////////
+	// WHILE SUM
+	///////////////////////////////////////
+function sumElementsWhile(node) {
+	let current = node;
+	let sum = 0;
+
+	while (current !== null) {
+		sum += node.val;
+		current = current.next;
+	}
+
+	return sum;
 }
 
 const node = createLinkedList([1, 2, 3, 4, 5]);
 
-sumElements(node);
+sumElementsWhile(node);
