@@ -16,9 +16,9 @@ var sumElementsInList = function (head) {
 
 sumElementsInList([1, 2, 3, 4, 5]);
 
-	///////////////////////////////////////
-	// CREATE LINKED LIST
-	///////////////////////////////////////
+///////////////////////////////////////
+// CREATE LINKED LIST
+///////////////////////////////////////
 function createLinkedList(head) {
 	let node = new ListNode(0);
 	let currentNode = node;
@@ -34,9 +34,9 @@ function createLinkedList(head) {
 
 createLinkedList([1, 2, 3, 4, 5]);
 
-	///////////////////////////////////////
-	// RECURSION SUM
-	///////////////////////////////////////
+///////////////////////////////////////
+// RECURSION SUM
+///////////////////////////////////////
 function sumElementsRecursive(node, currentSum = 0) {
 	currentSum = Number(currentSum);
 
@@ -48,9 +48,9 @@ function sumElementsRecursive(node, currentSum = 0) {
 
 	return sumElements(node.next, currentSum);
 }
-	///////////////////////////////////////
-	// WHILE SUM
-	///////////////////////////////////////
+///////////////////////////////////////
+// WHILE SUM
+///////////////////////////////////////
 function sumElementsWhile(node) {
 	let current = node;
 	let sum = 0;
