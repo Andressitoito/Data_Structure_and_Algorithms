@@ -28,6 +28,29 @@ const node_while = createLinkedList([1, 2, 3, 4, 5]);
 reverseList(node_while);
 
 ///////////////////////////////////////
+// REVERSE LIST RECURSION
+///////////////////////////////////////
+var reverseLinkedList = function (node, prev) {
+	prev = prev === undefined ? null : prev;
+
+	if (node === null) {
+		console.log(prev);
+		return prev;
+	}
+
+	let tempNode = node.next;
+	node.next = prev;
+
+	prev = node;
+	node = tempNode;
+
+	return reverseLinkedList(node, prev);
+};
+
+const node_recursion = createLinkedList([1, 2, 3, 4, 5]);
+reverseLinkedList(node_recursion);
+
+///////////////////////////////////////
 // CREATE LINKED LIST
 ///////////////////////////////////////
 function createLinkedList(head) {
